@@ -1,19 +1,19 @@
 <template>
-    <div class="[ row ]">
-        <div class="[ col-sm-4 ]">
-            <div class="[ card ]">
-                <div><img></div>
-                <div class="[ card--information ]"><br>
-                    <span>Date Created: </span><br>
-                    <span>Title: </span><br>
-                    <span>Company Name: </span><br>
-                    <span>Location: </span><br>
-                    <span>Type: </span><br>
-                    <span>Description: </span><br>
-                    <span>How to apply: </span><br>
-                    <span>Company Website: </span><a href="" target="_blank">Click Here</a><br>
-                </div>
-            </div>
+    <div class="[ card ]">
+        <div class="[ row ]">
+            <div class="[ col-sm-4 ]"></div>
+            <div class="[ col-sm-4 ]"><img :src="jobImg"><br><br><br></div>
+            <div class="[ col-sm-4 ]"></div>
+        </div>
+        <div class="[ card--information ]"><br>
+            <b>Date Created: </b>{{dateCreated}}<br>
+            <b>Title: </b>{{title}}<br>
+            <b>Company Name: </b>{{companyName}}<br>
+            <b>Location: </b>{{location}}<br>
+            <b>Type: </b>{{type}}<br>
+            <b>Description: </b><span v-html="description"></span><br>
+            <b>How to apply: </b><span v-html="howToApply"></span><br>
+            <b>Company Website: </b><a :href="website" target="_blank">Click Here</a><br>
         </div>
     </div>
 </template>
@@ -21,26 +21,19 @@
 <script>
 export default {
     name: 'JobListingComponent',
+    props: ['jobImg','dateCreated','title','companyName','location','type','description','howToApply','website'],
 }
 </script>
 
 <style scoped>
-.card{
-    border-radius: 10px;
+.card {
+    border: solid 1px black;
+    border-radius: 4px;
     padding: 0px 20px 30px;
-    position: absolute;
-    top: 50vh;
-    left: 50vw;
-    width: 30rem;
-    margin-left: -15rem;
-    margin-top: -15rem;
-    box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48), -4px -2px 16px #FFFFFF;
+    margin-top: 30px;
 }
-.card img{
+.card img {
     width: 100%;
     padding-top: 20px;
-}
-.card span{
-    font-weight: bold;
 }
 </style>
